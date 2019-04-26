@@ -30,9 +30,9 @@
                     </li>
                 </ul>
                 <div class="navbar-form navbar-right">
-                    <a class="btn btn-danger" th:href="@{/user/index}" th:if="${#httpServletRequest.remoteUser}">个人中心</a>
+                    <a class="btn btn-danger" th:href="@{/user}" th:if="${#httpServletRequest.remoteUser}">个人中心</a>
                     <a class="btn btn-info" th:href="@{/regpage}" th:unless="${#httpServletRequest.remoteUser}">注册</a>
-                    <a class="btn btn-success" th:href="@{/login2}" th:unless="${#httpServletRequest.remoteUser}">登录</a>
+                    <a class="btn btn-success" th:href="@{/login}" th:unless="${#httpServletRequest.remoteUser}">登录</a>
                 </div>
             </div>
         </div>

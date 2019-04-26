@@ -21,15 +21,10 @@ public class LoginAndRegisterController {
         return "/index";
     }
 
-    @GetMapping("/login2")
+    @GetMapping("/login")
     public String loginPage(){
+        log.info("登陆方法被调用！");
         return "/login";
-    }
-
-    @GetMapping("/logout2")
-    public String logout(){
-        log.info("关闭系统资源，用户退出登录");
-        return "/index";
     }
 
     @GetMapping("/regpage")

@@ -1,19 +1,15 @@
 spring:
-
   thymeleaf:
     cache: false
-
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/security?useUnicode=true&characterEncoding=utf8
     username: root
     password: root
-  jpa:
-    show-sql: true
 
 
 mybatis-plus:
-  type-aliases-package: com.txp.security.model.entity   #\u591A\u4E2A\u8DEF\u5F84\uFF0C\u9694\u5F00
+  type-aliases-package: com.txp.security.model.entity   #多个地址用，隔开
   mapper-locations: classpath:com/txp/security/mapper/xml/*.xml
   global-config:
     db-config:
