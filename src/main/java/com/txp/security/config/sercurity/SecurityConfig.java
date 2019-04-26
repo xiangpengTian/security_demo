@@ -17,14 +17,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers("/","login2").permitAll()
-                .antMatchers("/user/**").hasRole("USER")
+
+        http
+                .authorizeRequests()
+                .antMatchers("/").permitAll()
+                .antMatchers("/user/**").hasAuthority("USER")
                 .and()
-                //form表单中action的地址 loginPage("/login")
+                //登陆地址，当页面访问该地址，进入controller,寻找该值的mapping，返回登陆页面
+                //登陆页面form提交至该地址，被security拦截器拦截验证用户是否存在，密码是否正确
                 .formLogin().loginPage("/login").defaultSuccessUrl("/user/index")
                 .and()
-                .logout().logoutUrl("/logout2").logoutSuccessUrl("/loginto");
+                //security拦截器拦截/logout，直接登出
+                .logout().logoutUrl("/logout").logoutSuccessUrl("/index");
+
     }
 
     @Override
